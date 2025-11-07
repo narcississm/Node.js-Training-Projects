@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Real-time Analytics Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+
+<body>
+    <h1>📊 Canlı Analitik Paneli</h1>
+    <div class="chart-container">
+        <canvas id="usersChart"></canvas>
+    </div>
+    <div class="chart-container">
+        <canvas id="pageViewsChart"></canvas>
+    </div>
+    <div class="chart-container">
+        <canvas id="clicksChart"></canvas>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

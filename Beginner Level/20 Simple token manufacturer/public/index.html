@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basit Token Üretici</title>
+</head>
+
+<body>
+    <h1>Basit Token Üretici</h1>
+    <a href="/generate-token" id="generateTokenLink">Token Al</a>
+    <div id="tokenContainer"></div>
+
+    <script>
+        document.getElementById('generateTokenLink').addEventListener('click', async function(e) {
+            e.preventDefault();
+            const response = await fetch('/generate-token');
+            const data = await response.json();
+            document.getElementById('tokenContainer').innerHTML = `<p>Üretilen Token: ${data.token}</p>`;
+        });
+    </script>
+</body>
+
+</html>

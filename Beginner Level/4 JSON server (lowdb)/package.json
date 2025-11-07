@@ -1,0 +1,17 @@
+{
+    "dependencies": {
+        "express": "^5.1.0",
+        "lowdb": "^2.0.0"
+    },
+    "name": "4-json-server-(lowdb)",
+    "version": "1.0.0",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "description": ""
+}

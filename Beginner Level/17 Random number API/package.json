@@ -1,0 +1,17 @@
+{
+    "name": "17-random-number-api",
+    "version": "1.0.0",
+    "description": "Bu API, kullanıcıların belirttiği aralıkta rastgele bir sayı üretir. Kullanıcılar, **min** ve **max** parametreleri ile bir aralık belirler ve API, bu aralıkta rastgele bir sayı döner.",
+    "main": "server.js",
+    "type": "module",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node server.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^5.1.0"
+    }
+}

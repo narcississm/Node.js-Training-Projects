@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Real-time Task Platform</title>
+</head>
+
+<body>
+    <h1>Real-time Task Platform</h1>
+    <form id="taskForm">
+        <input type="text" id="title" placeholder="Enter Task Title" required />
+        <button type="submit">Create Task</button>
+    </form>
+
+    <ul id="taskList"></ul>
+
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+    <script>
+        const socket = io();
+
+        const form = document.getElementById('taskForm');
+        const list = document.getElementById('taskList');
+
+        form.onsubmit = async(e) => {
+            e.preventDefault();
+            const title = document.getElementById('title').value.trim();
+            if (!title) return;
+
+            const res = await fetch('/api/tasks', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    title
+                })
+            });
+
+            const task = await res.json();
+            socket.emit('assignTask', task);
+            form.reset();
+        };
+
+        socket.on('taskAssigned', (task) => {
+            const item = document.createElement('li');
+            item.textContent = `${task.title} - ${task.status}`;
+            list.appendChild(item);
+        });
+    </script>
+</body>
+
+</html>
